@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/todo_page.dart';
+import 'package:flutter_application_4/home_page.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
-  runApp(const MyWidget());
+void main() async {
+  await Hive.initFlutter();
+  var box = Hive.openBox('data');
+  runApp(const MyApp());
 }
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ToDoPage(),
+      home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryColor: Colors.blue.shade200),
     );
   }
 }
