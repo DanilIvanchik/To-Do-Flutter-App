@@ -4,7 +4,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   await Hive.initFlutter();
-  var box = Hive.openBox('data');
+  var box = await Hive.openBox('data');
   runApp(const MyApp());
 }
 
